@@ -47,6 +47,9 @@ function redeemedBottles(aPurchase, aPopCost=2) {
   var emptyBottles = 0;
   var caps = 0;
   var totalRedeemedBottles = 0;
+  var totalFromRecyclingBottles = 0;
+  var totalFromRecyclingCaps = 0;
+  var info = ""
 
   // console.log(`Inicial Purchase: ${fullBottles} bottles`);
   while(fullBottles > 0) {
@@ -54,13 +57,21 @@ function redeemedBottles(aPurchase, aPopCost=2) {
     caps += fullBottles;
     fullBottles = Math.trunc(emptyBottles / 2);
     fullBottles += Math.trunc(caps / 4);
+    totalFromRecyclingBottles += Math.trunc(emptyBottles / 2);
+    totalFromRecyclingCaps += Math.trunc(caps / 4);
     caps %= 4;
     emptyBottles = emptyBottles % 2;
     totalRedeemedBottles += fullBottles;
     // console.log(`full bottles: ${fullBottles}\nempty bottles: ${emptyBottles}\ncaps: ${caps}\n`);
   }
 
-  return `You redeemed ${totalRedeemedBottles} bottles.`;
+  // return `You might redeem ${totalRedeemedBottles} bottles.`;
+  info += `*** Inicial purchase: ${purchase} bottles ***\n`;
+  info += `# Total redeemed bottles: ${totalRedeemedBottles} bottles\n`;
+  info += `  - From recycling bottles: ${totalFromRecyclingBottles} bottles\n`;
+  info += `  - From recycling caps: ${totalFromRecyclingCaps} bottles\n`;
+
+  return info;
 }
 
 console.log(redeemedBottles(totalSpent, 2));
