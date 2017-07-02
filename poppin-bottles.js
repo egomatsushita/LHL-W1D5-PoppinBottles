@@ -37,6 +37,9 @@
 
 */
 
+var args = process.argv.slice(2);
+var totalSpent = args;
+
 function redeemedBottles(aPurchase, aPopCost=2) {
   var purchase = aPurchase;
   var popCost = aPopCost;
@@ -57,7 +60,8 @@ function redeemedBottles(aPurchase, aPopCost=2) {
     // console.log(`full bottles: ${fullBottles}\nempty bottles: ${emptyBottles}\ncaps: ${caps}\n`);
   }
 
-  return totalRedeemedBottles;
+  return `You redeemed ${totalRedeemedBottles} bottles.`;
 }
 
-console.log(redeemedBottles(20, 2));
+console.log(redeemedBottles(totalSpent, 2));
+
