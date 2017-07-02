@@ -66,10 +66,13 @@ function redeemedBottles(aPurchase, aPopCost=2) {
   }
 
   // return `You might redeem ${totalRedeemedBottles} bottles.`;
-  info += `*** Inicial purchase: ${purchase} bottles ***\n`;
+  info += `\n*** Inicial purchase: ${purchase} bottles ***\n`;
   info += `# Total redeemed bottles: ${totalRedeemedBottles} bottles\n`;
   info += `  - From recycling bottles: ${totalFromRecyclingBottles} bottles\n`;
   info += `  - From recycling caps: ${totalFromRecyclingCaps} bottles\n`;
+  info += `  - Left over empty bottles: ${emptyBottles} bottles\n`;
+  info += `  - Left over caps: ${caps} caps\n`;
+  info += `*** Hey! Wanna to redeem more pops? We have special offers!!! ***\n`;
 
   return info;
 }
